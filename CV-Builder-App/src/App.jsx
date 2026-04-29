@@ -1,3 +1,5 @@
+import GeneralInfo from './components/GeneralInfo';
+import { data } from './assets/data';
 export default function App() {
-    return <h1>Hello World</h1>;
+    return <GeneralInfo data={data.GeneralInfoData} mode={data.mode} />;
 }
