@@ -3,7 +3,7 @@ export const data = {
         firstName: 'Aayush',
         lastName: 'Trivedi',
         email: 'aayush.t200@gmail.com',
-        contactNumber: '8879073846',
+        contactNumber: '+91 8879073846',
         linkedin: 'https://www.linkedin.com/in/aayush-tri/',
         github: 'https://github.com/aayusht200',
         summary:
