@@ -20,7 +20,7 @@ export default function GeneralInfo({ data, mode }) {
 
 function Preview({ data, onClick }) {
     return (
-        <form>
+        <>
             <div className="userName">
                 <h1>
                     {data.firstName} {data.lastName}
@@ -44,7 +44,7 @@ function Preview({ data, onClick }) {
                     Edit
                 </button>
             </div>
-        </form>
+        </>
     );
 }
 function Edit({ data, onSubmit, onSave }) {
