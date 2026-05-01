@@ -1,19 +1,15 @@
 import { useState } from 'react';
 
-export default function GeneralInfo({ data }) {
+export default function GeneralInfo({ data, onSave }) {
     const [viewMode, setViewMode] = useState('preview');
-    const [currentData, setCurrentData] = useState(data);
     function updateView() {
         setViewMode((prev) => (prev === 'preview' ? 'edit' : 'preview'));
     }
-    function updateCurrentData(newData) {
-        setCurrentData(newData);
-    }
     const componentUI =
         viewMode === 'preview' ? (
-            <Preview data={currentData} onClick={updateView} />
+            <Preview data={data} onClick={updateView} />
         ) : (
-            <Edit data={currentData} onSubmit={updateView} onSave={updateCurrentData} />
+            <Edit data={data} onSubmit={updateView} onSave={onSave} />
         );
     return <div className="GeneralInfo">{componentUI}</div>;
 }
@@ -59,7 +55,7 @@ function Edit({ data, onSubmit, onSave }) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        onSave(newData);
+        onSave('GeneralInfoData', newData);
         onSubmit();
     }
 
