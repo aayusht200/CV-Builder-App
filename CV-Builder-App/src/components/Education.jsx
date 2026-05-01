@@ -49,23 +49,35 @@ function UniversityInfo({ data }) {
 }
 function Edit({ data, onSubmit, onSave }) {
     const [newData, setNewData] = useState(data);
-
-    function handleEdit(e) {
-        setNewData((prev) => ({
+    function handleAdd(e) {
+        e.preventDefault();
+        setNewData((prev) => [
             ...prev,
-            [e.target.id]: e.target.value,
-        }));
+            {
+                id: prev.length ? prev.at(-1).id + 1 : 1,
+                universityName: '',
+                degreeName: '',
+                graduationDate: '',
+                notableCourses: '',
+            },
+        ]);
     }
 
     function handleSubmit(e) {
         e.preventDefault();
-        onSave('EducationInfoData', newData);
+        onSave('EducationData', newData);
         onSubmit();
     }
 
     return (
         <form onSubmit={handleSubmit}>
             <div className="formControl">
+                {newData.map((university) => (
+                    <UniversityInfoEdit data={university} key={university.id}></UniversityInfoEdit>
+                ))}
+                <button type="button" className="btn" onClick={handleAdd}>
+                    Add New
+                </button>
                 <button type="submit" className="btn">
                     Submit
                 </button>
@@ -73,6 +85,11 @@ function Edit({ data, onSubmit, onSave }) {
         </form>
     );
 }
+function UniversityInfoEdit({ data }) {
+    console.log(data);
+    return <>{data.universityName}</>;
+}
+
 function Input({ id, type, value, onChange, label, pattern, title }) {
     return (
         <>
