@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-export default function GeneralInfo({ data, mode }) {
-    const [viewMode, setViewMode] = useState(mode);
+export default function GeneralInfo({ data }) {
+    const [viewMode, setViewMode] = useState('preview');
     const [currentData, setCurrentData] = useState(data);
     function updateView() {
         setViewMode((prev) => (prev === 'preview' ? 'edit' : 'preview'));
