@@ -1,4 +1,5 @@
 import GeneralInfo from './components/GeneralInfo';
+import Education from './components/Education';
 import { data } from './assets/data';
 import { useState } from 'react';
 export default function App() {
@@ -10,5 +11,10 @@ export default function App() {
         }));
     }
 
-    return <GeneralInfo data={currentData.GeneralInfoData} onSave={updateCurrentData} />;
+    return (
+        <>
+            <GeneralInfo data={currentData.GeneralInfoData} onSave={updateCurrentData} />
+            <Education data={currentData.EducationData} onSave={updateCurrentData} />
+        </>
+    );
 }
