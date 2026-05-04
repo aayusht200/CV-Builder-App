@@ -105,4 +105,53 @@ export const data = {
             ],
         },
     ],
+    ProjectData: [
+        {
+            id: 1,
+            projectTitle: 'Battleship Game',
+            domain: 'Browser-Based Web Application',
+            startDate: 'Apr 2026',
+            endDate: 'Apr 2026',
+            projectDesc: `Built a modular browser-based implementation of the classic
+Battleship game using JavaScript ES Modules, Vite, and Jest. Applied test-driven development to validate ship placement, hit
+detection, turn handling, and win conditions. Designed a controller-driven state architecture with strict separation between UI rendering
+and game logic to improve maintainability. Implemented randomized ship placement, computer auto-turn logic, event delegation, reset
+functionality, and state-driven UI updates. Resolved complex shared object reference bugs, strengthening debugging and object lifecycle
+management.`,
+            projectLinks: {
+                live: 'https://aayusht200.github.io/battleship/',
+                code: 'https://github.com/aayusht200/battleship',
+            },
+        },
+        {
+            id: 2,
+            projectTitle: 'ToDo App',
+            domain: 'Task Management Web Application',
+            startDate: 'Apr 2026',
+            endDate: 'Apr 2026',
+            projectDesc: `Developed a feature-rich task and project management application
+using HTML, CSS, and JavaScript (ES6 Modules). Built centralized state management, CRUD workflows, priority and status tracking,
+and dynamic DOM rendering. Implemented responsive Grid and Flexbox layouts, localStorage persistence, and modular Webpack-based
+architecture.`,
+            projectLinks: {
+                live: 'https://aayusht200.github.io/Todo-Project/',
+                code: 'https://github.com/aayusht200/Todo-Project',
+            },
+        },
+        ,
+        {
+            id: 3,
+            projectTitle: 'WeatherApp',
+            domain: 'API-Based Dashboard ',
+            startDate: 'Apr 2026',
+            endDate: 'Apr 2026',
+            projectDesc: `Built a front-end weather dashboard integrating Visual Crossing Weather API
+and OpenCage geolocation API for real-time weather and location-based updates. Implemented async/await workflows, localStorage
+caching, manual and auto refresh logic, and dynamic UI updates with responsive Grid/Flexbox layouts.`,
+            projectLinks: {
+                live: 'https://aayusht200.github.io/WeatherApp-API-Practice/',
+                code: 'https://github.com/aayusht200/WeatherApp-API-Practice',
+            },
+        },
+    ],
 };

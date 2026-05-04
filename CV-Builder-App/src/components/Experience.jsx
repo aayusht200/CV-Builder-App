@@ -110,9 +110,10 @@ function Edit({ data, onSubmit, onSave }) {
 }
 function ExperienceInfoEdit({ data, onChange, onRemove }) {
     function handleEdit(e) {
+        console.log(e.target.name);
         const updated = {
             ...data,
-            [e.target.id]: e.target.value,
+            [e.target.name]: e.target.value,
         };
 
         onChange(updated);
@@ -158,10 +159,19 @@ function ExperienceInfoEdit({ data, onChange, onRemove }) {
 
     return (
         <div className="ExperienceInfoUpdate">
-            <Input id="company" type="text" value={data.company} onChange={handleEdit} label="Company Name" />
+            <Input
+                id={`company-${data.id}`}
+                type="text"
+                name="company"
+                value={data.company}
+                onChange={handleEdit}
+                label="Company Name"
+                autoComplete="Organization"
+            />
 
             <Input
-                id="positionTitle"
+                name="positionTitle"
+                id={`positionTitle-${data.id}`}
                 type="text"
                 value={data.positionTitle}
                 onChange={handleEdit}
@@ -170,7 +180,8 @@ function ExperienceInfoEdit({ data, onChange, onRemove }) {
             />
 
             <Input
-                id="startDate"
+                name="startDate"
+                id={`startDate-${data.id}`}
                 type="text"
                 value={data.startDate}
                 onChange={handleEdit}
@@ -180,7 +191,8 @@ function ExperienceInfoEdit({ data, onChange, onRemove }) {
             />
 
             <Input
-                id="endDate"
+                name="endDate"
+                id={`endDate-${data.id}`}
                 type="text"
                 value={data.endDate}
                 onChange={handleEdit}
@@ -193,38 +205,42 @@ function ExperienceInfoEdit({ data, onChange, onRemove }) {
                 <ul className="responsibilitiesList">
                     {data.responsibilities.map((responsibility) => (
                         <li key={responsibility.id}>
-                            <Input
-                                id={responsibility.id}
+                            <input
+                                id={`responsibility-${data.id}-${responsibility.id}`}
                                 type="text"
                                 value={responsibility.text}
                                 onChange={(e) => handleListItem(e, responsibility.id)}
+                                name="responsibility"
                             />
                             <button type="button" onClick={() => removeListItem(responsibility.id)} className="btn">
                                 ❌
                             </button>
                         </li>
                     ))}
-
                     <button type="button" onClick={addNewListItem} className="btn">
                         Add New
                     </button>
                 </ul>
+                <button type="Button" onClick={() => onRemove(data.id)} className="btn">
+                    ❌
+                </button>
             </div>
         </div>
     );
 }
-function Input({ id, type, value, onChange, label, pattern, title }) {
+function Input({ id, type, value, onChange, label, pattern, title, autoComplete, name }) {
     return (
         <>
             <label htmlFor={id}>{label} :</label>
             <input
+                name={name}
                 type={type}
                 value={value}
                 onChange={onChange}
                 id={id}
-                name={id}
                 pattern={pattern}
                 title={title}
+                autoComplete={autoComplete}
                 required
             />
         </>

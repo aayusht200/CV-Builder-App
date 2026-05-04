@@ -1,6 +1,7 @@
 import GeneralInfo from './components/GeneralInfo';
 import Education from './components/Education';
 import Experience from './components/Experience';
+import Projects from './components/Projects';
 import { data } from './assets/data';
 import { useState } from 'react';
 export default function App() {
@@ -15,8 +16,9 @@ export default function App() {
     return (
         <>
             {/* <GeneralInfo data={currentData.GeneralInfoData} onSave={updateCurrentData} />
-            <Education data={currentData.EducationData} onSave={updateCurrentData} /> */}
-            <Experience data={currentData.ExperienceData} onSave={updateCurrentData} />
+            <Education data={currentData.EducationData} onSave={updateCurrentData} />
+            <Experience data={currentData.ExperienceData} onSave={updateCurrentData} />*/}
+            <Projects data={currentData.ProjectData} onSave={updateCurrentData}></Projects>
         </>
     );
 }
