@@ -38,7 +38,7 @@ export const data = {
             company: 'Elite Jewelry House / Frostrox LLC',
             positionTitle: 'Systems Manager',
             startDate: 'Sep 2024',
-            endDate: 'Current',
+            endDate: 'Present',
             responsibilities: [
                 {
                     id: 1,
