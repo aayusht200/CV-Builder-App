@@ -204,8 +204,8 @@ function ExperienceInfoEdit({ data, onChange, onRemove }) {
             />
 
             <div className="responsibilities">
-                <ul className="responsibilitiesList">
-                    Responsibility :
+                <label htmlFor="">Responsibility :</label>
+                <ul className="responsibilitiesList" id={`responsibilitiesList-${data.id}`}>
                     {data.responsibilities.map((responsibility) => (
                         <li key={responsibility.id} className="responsibilitiesListItem">
                             <input
@@ -216,7 +216,7 @@ function ExperienceInfoEdit({ data, onChange, onRemove }) {
                                 name="responsibility"
                             />
                             <button type="button" onClick={() => removeListItem(responsibility.id)} className="btn">
-                                ❌
+                                Delete
                             </button>
                         </li>
                     ))}

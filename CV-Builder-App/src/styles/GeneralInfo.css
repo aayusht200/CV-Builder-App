@@ -29,7 +29,11 @@
 }
 
 /* ---------- PREVIEW ---------- */
-
+.userName h1 {
+    line-height: 1.5;
+    padding: 0;
+    margin-bottom: -10px;
+}
 .GeneralInfo.preview {
     grid-template-columns: auto auto;
     grid-template-areas:

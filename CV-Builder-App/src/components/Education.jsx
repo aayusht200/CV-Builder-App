@@ -138,21 +138,20 @@ function UniversityInfoEdit({ data, onChange, onRemove }) {
                 pattern="^[A-Za-z0-9\s.,()-]{2,}$"
                 title="Enter a valid degree name"
             ></Input>
-            <label htmlFor="notableCourses">
-                Notable Courses :
-                <textarea
-                    id="notableCourses"
-                    type="text"
-                    value={newData.notableCourses}
-                    onChange={handleEdit}
-                    cols={50}
-                    rows={2}
-                    pattern="^.{5,}$"
-                    title="Enter at least 5 characters"
-                ></textarea>
-            </label>
+            <label htmlFor="notableCourses">Notable Courses : </label>
+            <textarea
+                id="notableCourses"
+                type="text"
+                value={newData.notableCourses}
+                onChange={handleEdit}
+                cols={50}
+                rows={2}
+                pattern="^.{5,}$"
+                title="Enter at least 5 characters"
+            ></textarea>
+
             <button type="Button" onClick={() => onRemove(newData.id)} className="btn">
-                ❌
+                Delete
             </button>
         </div>
     );

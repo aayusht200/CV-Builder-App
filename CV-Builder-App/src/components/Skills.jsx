@@ -117,7 +117,7 @@ function SkillsInfoEdit({ data, onChange, onRemove }) {
                 name="skills"
             ></textarea>
             <button type="button" onClick={() => onRemove(data.id)} className="btn">
-                ❌
+                Delete
             </button>
         </div>
     );

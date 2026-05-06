@@ -210,7 +210,7 @@ function ProjectInfoEdit({ data, onChange, onRemove }) {
                 />
             </div>
             <button type="button" onClick={() => onRemove(data.id)} className="btn">
-                ❌
+                Delete
             </button>
         </div>
     );

@@ -30,6 +30,7 @@
 }
 
 .ProjectInfoContainer.preview .projectLinks {
+    gap: var(--gap-inner);
     width: fit-content;
 }
 
