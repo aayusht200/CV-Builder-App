@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import '../styles/GeneralInfo.css';
 export default function GeneralInfo({ data, onSave }) {
     const [viewMode, setViewMode] = useState('preview');
     function updateView() {
@@ -11,7 +11,7 @@ export default function GeneralInfo({ data, onSave }) {
         ) : (
             <Edit data={data} onSubmit={updateView} onSave={onSave} />
         );
-    return <div className="GeneralInfo">{componentUI}</div>;
+    return <div className={`GeneralInfo ${viewMode}`}>{componentUI}</div>;
 }
 
 function Preview({ data, onClick }) {

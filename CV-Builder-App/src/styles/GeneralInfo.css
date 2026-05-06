@@ -1,0 +1,79 @@
+:root {
+    --gap-div: 0.4rem;
+    --gap-inner: 0.4rem;
+}
+.GeneralInfo.preview {
+    display: grid;
+    gap: var(--gap-div);
+    grid-template-columns: auto auto;
+    grid-template-areas:
+        'userName userName'
+        'ContactDetails ContactLinks'
+        'SummarySection SummarySection'
+        'formControl formControl';
+}
+.GeneralInfo.preview .userName {
+    justify-self: center;
+    grid-area: userName;
+}
+
+.GeneralInfo.preview .ContactDetails {
+    grid-area: ContactDetails;
+    justify-self: end;
+    display: flex;
+    gap: var(--gap-inner);
+}
+
+.GeneralInfo.preview .ContactLinks {
+    grid-area: ContactLinks;
+    justify-self: start;
+    display: flex;
+    gap: var(--gap-inner);
+}
+
+.GeneralInfo.preview .SummarySection {
+    grid-area: SummarySection;
+}
+
+.GeneralInfo .formControl {
+    grid-area: formControl;
+    justify-self: end;
+}
+
+.GeneralInfo.edit form {
+    display: grid;
+    gap: var(--gap-div);
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        'userName userName'
+        'ContactDetails ContactDetails'
+        'ContactLinks ContactLinks'
+        'SummarySection SummarySection'
+        'formControl formControl';
+}
+.GeneralInfo.edit .userName {
+    grid-area: userName;
+    display: grid;
+    gap: var(--gap-inner);
+}
+.GeneralInfo.edit .ContactDetails {
+    display: grid;
+    align-items: center;
+    gap: var(--gap-inner);
+    grid-area: ContactDetails;
+}
+
+.GeneralInfo.edit .ContactLinks {
+    gap: var(--gap-inner);
+    grid-area: ContactLinks;
+    display: grid;
+}
+.GeneralInfo.edit .SummarySection {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-inner);
+    grid-area: SummarySection;
+}
+.GeneralInfo.edit textarea {
+    width: 100%;
+}
