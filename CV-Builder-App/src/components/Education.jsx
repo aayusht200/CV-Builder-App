@@ -12,7 +12,7 @@ export default function Education({ data, onSave }) {
             <Edit data={data} onSubmit={updateView} onSave={onSave} />
         );
     return (
-        <div className="EducationInfo">
+        <div className={`EducationInfo ${viewMode}`}>
             <h1 className="sectionHeader">Education</h1>
             {componentUI}
         </div>
@@ -86,12 +86,14 @@ function Edit({ data, onSubmit, onSave }) {
                     ></UniversityInfoEdit>
                 ))}
 
-                <button type="button" className="btn" onClick={handleAdd}>
-                    Add New
-                </button>
-                <button type="submit" className="btn">
-                    Submit
-                </button>
+                <div className="formControl-btn">
+                    <button type="button" className="btn" onClick={handleAdd}>
+                        Add New
+                    </button>
+                    <button type="submit" className="btn">
+                        Submit
+                    </button>
+                </div>
             </div>
         </form>
     );

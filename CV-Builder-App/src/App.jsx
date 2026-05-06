@@ -21,8 +21,8 @@ export default function App() {
                 <GeneralInfo data={currentData.GeneralInfoData} onSave={updateCurrentData} />
                 <Education data={currentData.EducationData} onSave={updateCurrentData} />
                 <Experience data={currentData.ExperienceData} onSave={updateCurrentData} />
-                <Projects data={currentData.ProjectData} onSave={updateCurrentData} />
-                <Skills data={currentData.SkillsData} onSave={updateCurrentData} />
+                {/* <Projects data={currentData.ProjectData} onSave={updateCurrentData} /> */}
+                {/* <Skills data={currentData.SkillsData} onSave={updateCurrentData} /> */}
             </div>
         </div>
     );

@@ -1,0 +1,76 @@
+:root {
+    --gap-div: 1rem;
+    --gap-inner: 0.6rem;
+}
+
+/* ---------- BASE ---------- */
+
+.ExperienceInfo {
+    display: grid;
+    gap: var(--gap-div);
+}
+
+/* ---------- PREVIEW ---------- */
+
+.ExperienceInfo.preview .ExperienceInfo,
+.ExperienceInfo.preview .responsibilitiesList {
+    display: grid;
+    gap: var(--gap-inner);
+}
+
+.ExperienceInfo.preview .ExperienceHeader {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.ExperienceInfo.preview .experienceDate,
+.ExperienceInfo.preview .formControl {
+    justify-self: end;
+}
+
+/* ---------- EDIT ---------- */
+
+.ExperienceInfo.edit .ExperienceInfoUpdate {
+    display: grid;
+    gap: var(--gap-inner);
+}
+
+.ExperienceInfo.edit .btn {
+    justify-self: end;
+}
+
+.ExperienceInfo.edit .responsibilities {
+    display: grid;
+    align-items: center;
+}
+
+.ExperienceInfo.edit .responsibilitiesList {
+    list-style: none;
+    display: grid;
+    gap: var(--gap-inner);
+}
+
+/* ---------- RESPONSIBILITIES ITEMS ---------- */
+
+.responsibilitiesListItem {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-inner);
+}
+
+.responsibilitiesListItem::before {
+    content: '•';
+    margin-right: 0.5rem;
+}
+
+/* ---------- CONTROLS ---------- */
+
+.ExperienceInfo .formControl {
+    display: grid;
+}
+
+.ExperienceInfo .formControl-btn {
+    display: flex;
+    justify-content: center;
+    gap: var(--gap-div);
+}

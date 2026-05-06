@@ -1,4 +1,5 @@
 // company,title,start_date,end_date,responsiblities
+import '../styles/Experience.css';
 import { useState } from 'react';
 export default function Experience({ data, onSave }) {
     const [viewMode, setViewMode] = useState('preview');
@@ -12,7 +13,7 @@ export default function Experience({ data, onSave }) {
             <Edit data={data} onSubmit={updateView} onSave={onSave} />
         );
     return (
-        <div className="ExperienceInfo">
+        <div className={`ExperienceInfo ${viewMode}`}>
             <h1 className="sectionHeader">Work Experience</h1>
             {componentUI}
         </div>
@@ -97,13 +98,14 @@ function Edit({ data, onSubmit, onSave }) {
                         onRemove={handleRemove}
                     />
                 ))}
-
-                <button type="button" className="btn" onClick={handleAdd}>
-                    Add New
-                </button>
-                <button type="submit" className="btn">
-                    Submit
-                </button>
+                <div className="formControl-btn">
+                    <button type="button" className="btn" onClick={handleAdd}>
+                        Add New
+                    </button>
+                    <button type="submit" className="btn">
+                        Submit
+                    </button>
+                </div>
             </div>
         </form>
     );
@@ -203,8 +205,9 @@ function ExperienceInfoEdit({ data, onChange, onRemove }) {
 
             <div className="responsibilities">
                 <ul className="responsibilitiesList">
+                    Responsibility :
                     {data.responsibilities.map((responsibility) => (
-                        <li key={responsibility.id}>
+                        <li key={responsibility.id} className="responsibilitiesListItem">
                             <input
                                 id={`responsibility-${data.id}-${responsibility.id}`}
                                 type="text"
@@ -221,10 +224,10 @@ function ExperienceInfoEdit({ data, onChange, onRemove }) {
                         Add New
                     </button>
                 </ul>
-                <button type="Button" onClick={() => onRemove(data.id)} className="btn">
-                    ❌
-                </button>
             </div>
+            <button type="Button" onClick={() => onRemove(data.id)} className="btn">
+                Delete Record
+            </button>
         </div>
     );
 }

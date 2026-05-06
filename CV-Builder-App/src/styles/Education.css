@@ -1,1 +1,62 @@
+:root {
+    --gap-div: 0.4rem;
+    --gap-inner: 0.4rem;
+}
 
+/* ---------- PREVIEW ---------- */
+
+.EducationInfo.preview {
+    display: grid;
+    gap: var(--gap-div);
+}
+
+.EducationInfo.preview .UniversityInfo {
+    display: grid;
+    gap: var(--gap-inner);
+}
+
+.EducationInfo.preview .degreeInfo {
+    display: grid;
+    gap: var(--gap-inner);
+}
+
+.EducationInfo.preview .UniversityHeader {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.EducationInfo.preview .graduationDate {
+    justify-self: end;
+}
+
+.EducationInfo.preview .formControl {
+    justify-self: end;
+}
+
+/* ---------- EDIT ---------- */
+
+.EducationInfo.edit {
+    display: grid;
+    gap: var(--gap-div);
+}
+
+.EducationInfo.edit .UniversityInfoUpdate {
+    display: grid;
+    gap: var(--gap-inner);
+}
+
+.EducationInfo.edit .btn {
+    justify-self: end;
+}
+
+/* ---------- CONTROLS ---------- */
+
+.EducationInfo .formControl {
+    display: grid;
+}
+
+.EducationInfo .formControl-btn {
+    display: flex;
+    justify-content: center;
+    gap: var(--gap-div);
+}

@@ -3,37 +3,49 @@
 *::after {
     margin: 0;
     box-sizing: border-box;
+}
+
+body {
     font-family: system-ui;
 }
+
 #root {
     display: flex;
     justify-content: center;
+    align-items: flex-start;
 }
+
 .app {
-    width: 80vw;
+    width: min(900px, 90vw);
 }
+
 .container {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
+
 .container > div {
     padding: 1rem;
-    border: 1px solid;
+    border: 1px solid #ccc;
+    border-radius: 6px;
 }
 
 a {
     text-decoration: none;
-    color: blue;
+    color: #2563eb;
 }
+
 input,
 textarea {
+    width: 100%;
+    min-height: 32px;
     padding: 0.4rem;
     border: 1px solid #ccc;
     border-radius: 4px;
-    min-height: 32px;
-    width: clamp(200px, 60%, 1000px);
+    font: inherit;
 }
+
 input:focus,
 textarea:focus {
     outline: none;
