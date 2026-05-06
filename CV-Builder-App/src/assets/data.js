@@ -178,4 +178,5 @@ DOM rendering patterns, async/await, Promises, localStorage`,
             skills: `Analytical problem-solving, adaptability, attention to detail, continuous self-learning`,
         },
     ],
+    sequence: ['GeneralInfo', 'Education', 'Experience', 'Projects', 'Skills'],
 };

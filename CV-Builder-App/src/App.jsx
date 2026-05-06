@@ -6,6 +6,7 @@ import Skills from './components/Skills';
 import { data } from './assets/data';
 import { useState } from 'react';
 import './App.css';
+import Sequence from './components/Sequence';
 export default function App() {
     const [currentData, setCurrentData] = useState(data);
     function updateCurrentData(section, newData) {
@@ -18,11 +19,12 @@ export default function App() {
     return (
         <div className="app">
             <div className="container">
-                <GeneralInfo data={currentData.GeneralInfoData} onSave={updateCurrentData} />
+                {/* <GeneralInfo data={currentData.GeneralInfoData} onSave={updateCurrentData} />
                 <Education data={currentData.EducationData} onSave={updateCurrentData} />
                 <Experience data={currentData.ExperienceData} onSave={updateCurrentData} />
-                <Projects data={currentData.ProjectData} onSave={updateCurrentData} />
+                <Projects data={currentData.ProjectData} onSave={updateCurrentData} /> */}
                 <Skills data={currentData.SkillsData} onSave={updateCurrentData} />
+                <Sequence data={currentData.sequence} onSave={updateCurrentData} />
             </div>
         </div>
     );
