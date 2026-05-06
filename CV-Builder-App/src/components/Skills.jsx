@@ -1,5 +1,5 @@
 //domain,skills
-
+import '../styles/Skills.css';
 import { useState } from 'react';
 export default function Skills({ data, onSave }) {
     const [viewMode, setViewMode] = useState('preview');
@@ -13,7 +13,7 @@ export default function Skills({ data, onSave }) {
             <Edit data={data} onSubmit={updateView} onSave={onSave} />
         );
     return (
-        <div className="SkillsInfo">
+        <div className={`SkillsInfoContainer ${viewMode}`}>
             <h1 className="sectionHeader">Skills</h1>
             {componentUI}
         </div>
@@ -36,7 +36,7 @@ function Preview({ data, onClick }) {
 
 function SkillsInfo({ data }) {
     return (
-        <div id={`skills-${data.id}`}>
+        <div id={`skills-${data.id}`} className="skillItem">
             <h3 className="skillsHeader">{data.domain}:</h3>
             <p className="skillSet">{data.skills}</p>
         </div>
@@ -80,12 +80,14 @@ function Edit({ data, onSubmit, onSave }) {
                         onRemove={handleRemove}
                     ></SkillsInfoEdit>
                 ))}
-                <button type="button" className="btn" onClick={handleAdd}>
-                    Add New
-                </button>
-                <button type="submit" className="btn">
-                    Submit
-                </button>
+                <div className="formControl-btn">
+                    <button type="button" className="btn" onClick={handleAdd}>
+                        Add New
+                    </button>
+                    <button type="submit" className="btn">
+                        Submit
+                    </button>
+                </div>
             </div>
         </form>
     );
@@ -106,14 +108,14 @@ function SkillsInfoEdit({ data, onChange, onRemove }) {
                 label="Domain"
                 name="domain"
             ></Input>
-            <Input
+            Skills :
+            <textarea
                 id={`skills-list-${data.id}`}
                 type="text"
                 value={data.skills}
                 onChange={handleEdit}
-                label="Skills"
                 name="skills"
-            ></Input>
+            ></textarea>
             <button type="button" onClick={() => onRemove(data.id)} className="btn">
                 ❌
             </button>

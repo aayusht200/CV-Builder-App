@@ -1,4 +1,5 @@
 //projectTitle,domain,startDate,endDate,projectDesc,projectLinks
+import '../styles/Projects.css';
 import { useState } from 'react';
 export default function Projects({ data, onSave }) {
     const [viewMode, setViewMode] = useState('preview');
@@ -12,7 +13,7 @@ export default function Projects({ data, onSave }) {
             <Edit data={data} onSubmit={updateView} onSave={onSave} />
         );
     return (
-        <div className="ProjectInfo">
+        <div className={`ProjectInfoContainer ${viewMode}`}>
             <h1 className="sectionHeader">Projects</h1>
             {componentUI}
         </div>
@@ -34,7 +35,7 @@ function Preview({ data, onClick }) {
 }
 function ProjectInfo({ data }) {
     return (
-        <div>
+        <div className="projectDiv">
             <div className="ProjectHeader">
                 <p className="companyNameTitle">
                     {data.projectTitle} - {data.domain}
@@ -99,13 +100,14 @@ function Edit({ data, onSubmit, onSave }) {
                         onRemove={handleRemove}
                     />
                 ))}
-
-                <button type="button" className="btn" onClick={handleAdd}>
-                    Add New
-                </button>
-                <button type="submit" className="btn">
-                    Submit
-                </button>
+                <div className="formControl-btn">
+                    <button type="button" className="btn" onClick={handleAdd}>
+                        Add New
+                    </button>
+                    <button type="submit" className="btn">
+                        Submit
+                    </button>
+                </div>
             </div>
         </form>
     );
@@ -175,19 +177,18 @@ function ProjectInfoEdit({ data, onChange, onRemove }) {
                 pattern="^((Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s\d{4}|Present|present)$"
                 title="Format: May 2023 | Present"
             />
-            <label htmlFor={`projectDesc-${data.id}`}>
-                <textarea
-                    name="projectDesc"
-                    id={`projectDesc-${data.id}`}
-                    type="text"
-                    value={data.projectDesc}
-                    onChange={handleEdit}
-                    cols={50}
-                    rows={10}
-                    pattern="^.{5,}$"
-                    title="Enter at least 5 characters"
-                ></textarea>
-            </label>
+            <label htmlFor={`projectDesc-${data.id}`}>Description :</label>
+            <textarea
+                name="projectDesc"
+                id={`projectDesc-${data.id}`}
+                type="text"
+                value={data.projectDesc}
+                onChange={handleEdit}
+                cols={50}
+                rows={10}
+                pattern="^.{5,}$"
+                title="Enter at least 5 characters"
+            ></textarea>
             <div className="ProjectLinks">
                 <Input
                     id={`project-link-live-${data.id}`}

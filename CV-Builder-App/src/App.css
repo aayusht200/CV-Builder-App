@@ -17,18 +17,13 @@ body {
 
 .app {
     width: min(900px, 90vw);
+    padding: 2rem 0;
 }
 
 .container {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-}
-
-.container > div {
-    padding: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 6px;
 }
 
 a {

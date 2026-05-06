@@ -1,0 +1,57 @@
+:root {
+    --gap-div: 1rem;
+    --gap-inner: 0.6rem;
+}
+
+/* ---------- BASE ---------- */
+
+.ProjectInfoContainer {
+    display: grid;
+    gap: var(--gap-div);
+}
+
+/* ---------- PREVIEW ---------- */
+
+.ProjectInfoContainer.preview .ProjectInfo,
+.ProjectInfoContainer.preview .projectDiv {
+    display: grid;
+    gap: var(--gap-inner);
+}
+
+.ProjectInfoContainer.preview .ProjectHeader,
+.ProjectInfoContainer.preview .projectLinks {
+    display: grid;
+    grid-template-columns: 1fr auto;
+}
+
+.ProjectInfoContainer.preview .projectDate,
+.ProjectInfoContainer.preview .formControl {
+    justify-self: end;
+}
+
+.ProjectInfoContainer.preview .projectLinks {
+    width: fit-content;
+}
+
+/* ---------- EDIT ---------- */
+
+.ProjectInfoContainer.edit .ProjectInfoUpdate {
+    display: grid;
+    gap: var(--gap-inner);
+}
+
+.ProjectInfoContainer.edit .btn {
+    justify-self: end;
+}
+
+/* ---------- CONTROLS ---------- */
+
+.ProjectInfoContainer .formControl {
+    display: grid;
+}
+
+.ProjectInfoContainer .formControl-btn {
+    display: flex;
+    justify-content: center;
+    gap: var(--gap-div);
+}

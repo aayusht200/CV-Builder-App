@@ -1,0 +1,60 @@
+:root {
+    --gap-div: 1rem;
+    --gap-inner: 0.6rem;
+}
+
+/* ---------- BASE ---------- */
+
+.SkillsInfoContainer {
+    display: grid;
+    gap: var(--gap-div);
+}
+
+/* ---------- PREVIEW ---------- */
+
+.SkillsInfoContainer.preview .SkillsInfo {
+    display: grid;
+    gap: var(--gap-div);
+}
+
+.SkillsInfoContainer.preview .skillItem {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-inner);
+}
+
+.SkillsInfoContainer.preview .skillsHeader {
+    align-self: flex-start;
+    min-width: max-content;
+}
+
+.SkillsInfoContainer.preview .skillsControl {
+    justify-self: end;
+}
+
+/* ---------- EDIT ---------- */
+
+.SkillsInfoContainer.edit .formControl {
+    display: grid;
+    gap: var(--gap-inner);
+}
+
+.SkillsInfoContainer.edit .SkillsInfoUpdate {
+    display: grid;
+    gap: var(--gap-inner);
+}
+
+.SkillsInfoContainer.edit .btn {
+    justify-self: end;
+}
+
+.SkillsInfoContainer.edit textarea {
+    min-height: clamp(80px, 120px, 150px);
+}
+
+/* ---------- CONTROLS ---------- */
+.formControl .formControl-btn {
+    display: flex;
+    justify-content: center;
+    gap: var(--gap-div);
+}
