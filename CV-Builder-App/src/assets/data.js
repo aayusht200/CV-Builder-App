@@ -154,4 +154,28 @@ caching, manual and auto refresh logic, and dynamic UI updates with responsive G
             },
         },
     ],
+    SkillsData: [
+        {
+            id: 1,
+            domain: 'Web Development & UI',
+            skills: `HTML5, CSS3, responsive layouts, Flexbox, Grid, accessibility, component-based styling, CSS variables,
+interactive effects, 3D card animations, scroll-linked UI, CSS-only components`,
+        },
+        {
+            id: 2,
+            domain: 'JavaScript / Architecture',
+            skills: `ES6+, ES Modules, OOP, MVC-inspired architecture, controller-based state management, event delegation,
+DOM rendering patterns, async/await, Promises, localStorage`,
+        },
+        {
+            id: 3,
+            domain: 'Testing & Tooling',
+            skills: `Typed.js, Three.js`,
+        },
+        {
+            id: 4,
+            domain: 'Soft Skills',
+            skills: `Analytical problem-solving, adaptability, attention to detail, continuous self-learning`,
+        },
+    ],
 };

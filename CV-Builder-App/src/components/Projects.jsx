@@ -20,7 +20,7 @@ export default function Projects({ data, onSave }) {
 }
 function Preview({ data, onClick }) {
     return (
-        <>
+        <div className="ProjectInfo">
             {data.map((project) => (
                 <ProjectInfo data={project} key={`project-${project.id}`}></ProjectInfo>
             ))}
@@ -29,12 +29,12 @@ function Preview({ data, onClick }) {
                     Edit
                 </button>
             </div>
-        </>
+        </div>
     );
 }
 function ProjectInfo({ data }) {
     return (
-        <div className="ProjectInfo">
+        <div>
             <div className="ProjectHeader">
                 <p className="companyNameTitle">
                     {data.projectTitle} - {data.domain}
