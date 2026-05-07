@@ -29,10 +29,6 @@
     justify-self: end;
 }
 
-.EducationInfo.preview .formControl {
-    justify-self: end;
-}
-
 /* ---------- EDIT ---------- */
 
 .EducationInfo.edit {
@@ -49,14 +45,3 @@
     justify-self: end;
 }
 
-/* ---------- CONTROLS ---------- */
-
-.EducationInfo .formControl {
-    display: grid;
-}
-
-.EducationInfo .formControl-btn {
-    display: flex;
-    justify-content: center;
-    gap: var(--gap-div);
-}

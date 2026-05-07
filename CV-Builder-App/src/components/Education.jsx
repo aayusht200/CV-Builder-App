@@ -31,12 +31,14 @@ function Preview({ data, onClick, printMode }) {
             </>
         );
     } else {
-        <>
-            {data.map((university) => (
-                <UniversityInfo data={university} key={university.id}></UniversityInfo>
-            ))}
-            <FormControl onClick={onClick} />
-        </>;
+        return (
+            <>
+                {data.map((university) => (
+                    <UniversityInfo data={university} key={university.id}></UniversityInfo>
+                ))}
+                <FormControl onClick={onClick} />
+            </>
+        );
     }
 }
 

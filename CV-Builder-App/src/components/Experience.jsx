@@ -1,14 +1,16 @@
 // company,title,start_date,end_date,responsiblities
 import '../styles/Experience.css';
+import FormControl from './FormControl';
+import Input from './Input';
 import { useState } from 'react';
-export default function Experience({ data, onSave }) {
+export default function Experience({ data, onSave, printMode }) {
     const [viewMode, setViewMode] = useState('preview');
     function updateView() {
         setViewMode((prev) => (prev === 'preview' ? 'edit' : 'preview'));
     }
     const componentUI =
         viewMode === 'preview' ? (
-            <Preview data={data} onClick={updateView} />
+            <Preview data={data} onClick={updateView} printMode={printMode} />
         ) : (
             <Edit data={data} onSubmit={updateView} onSave={onSave} />
         );
@@ -19,19 +21,25 @@ export default function Experience({ data, onSave }) {
         </div>
     );
 }
-function Preview({ data, onClick }) {
-    return (
-        <>
-            {data.map((experience) => (
-                <ExperienceInfo data={experience} key={experience.id}></ExperienceInfo>
-            ))}
-            <div className="formControl">
-                <button type="button" className="btn" onClick={onClick}>
-                    Edit
-                </button>
-            </div>
-        </>
-    );
+function Preview({ data, onClick, printMode }) {
+    if (printMode) {
+        return (
+            <>
+                {data.map((experience) => (
+                    <ExperienceInfo data={experience} key={experience.id}></ExperienceInfo>
+                ))}
+            </>
+        );
+    } else {
+        return (
+            <>
+                {data.map((experience) => (
+                    <ExperienceInfo data={experience} key={experience.id}></ExperienceInfo>
+                ))}
+                <FormControl onClick={onClick} />
+            </>
+        );
+    }
 }
 function ExperienceInfo({ data }) {
     return (
@@ -229,23 +237,5 @@ function ExperienceInfoEdit({ data, onChange, onRemove }) {
                 Delete Record
             </button>
         </div>
-    );
-}
-function Input({ id, type, value, onChange, label, pattern, title, autoComplete, name }) {
-    return (
-        <>
-            <label htmlFor={id}>{label} :</label>
-            <input
-                name={name}
-                type={type}
-                value={value}
-                onChange={onChange}
-                id={id}
-                pattern={pattern}
-                title={title}
-                autoComplete={autoComplete}
-                required
-            />
-        </>
     );
 }

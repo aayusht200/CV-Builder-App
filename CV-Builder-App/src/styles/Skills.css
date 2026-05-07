@@ -28,9 +28,7 @@
     min-width: max-content;
 }
 
-.SkillsInfoContainer.preview .skillsControl {
-    justify-self: end;
-}
+
 
 /* ---------- EDIT ---------- */
 
@@ -50,11 +48,4 @@
 
 .SkillsInfoContainer.edit textarea {
     min-height: clamp(80px, 120px, 150px);
-}
-
-/* ---------- CONTROLS ---------- */
-.formControl .formControl-btn {
-    display: flex;
-    justify-content: center;
-    gap: var(--gap-div);
 }

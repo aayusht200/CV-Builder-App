@@ -1,28 +1,36 @@
 :root {
-    /* spacing */
+    /* ---------- SPACING ---------- */
+
     --gap: 1rem;
     --padding-y: 2rem;
 
-    /* layout */
+    /* ---------- LAYOUT ---------- */
+
     --app-width: 90%;
 
-    /* colors */
+    /* ---------- COLORS ---------- */
+
     --color-text: #000;
     --color-text-muted: #171e29;
     --color-border: #ccc;
+
     --color-primary: #2563eb;
     --color-primary-hover: #06f;
+
     --color-bg: #fff;
 
-    /* typography */
+    /* ---------- TYPOGRAPHY ---------- */
+
     --font-base: system-ui, Arial, Helvetica, sans-serif;
 
-    /* inputs */
+    /* ---------- INPUTS ---------- */
+
+    --input-height: 32px;
     --input-padding: 0.4rem;
     --input-radius: 4px;
-    --input-height: 32px;
 
-    /* buttons */
+    /* ---------- BUTTONS ---------- */
+
     --btn-height: 32px;
     --btn-padding-x: 17px;
     --btn-border-width: 2px;
@@ -65,13 +73,20 @@ body {
 /* ---------- LINKS ---------- */
 
 a {
-    text-decoration: none;
     color: var(--color-primary);
+    text-decoration: none;
 }
 
 a:hover {
     color: var(--color-text);
     text-decoration: underline;
+}
+
+/* ---------- LABELS ---------- */
+
+label {
+    font-size: 1.1rem;
+    font-weight: 600;
 }
 
 /* ---------- INPUTS ---------- */
@@ -80,9 +95,12 @@ input,
 textarea {
     width: 100%;
     min-height: var(--input-height);
+
     padding: var(--input-padding);
+
     border: 1px solid var(--color-border);
     border-radius: var(--input-radius);
+
     font: inherit;
 }
 
@@ -99,20 +117,25 @@ textarea:focus {
     align-items: center;
     justify-content: center;
 
-    height: var(--btn-height);
     min-width: 80px;
+    height: var(--btn-height);
+
     padding: 0 var(--btn-padding-x);
 
     border: var(--btn-border-width) solid var(--color-text);
+
     background-color: var(--color-bg);
     color: var(--color-text);
 
     font-size: 16px;
     font-weight: 600;
-    cursor: pointer;
 
-    transition: all 0.3s;
+    cursor: pointer;
     user-select: none;
+
+    transition:
+        color 0.3s,
+        border-color 0.3s;
 }
 
 .app .btn:hover {
@@ -130,9 +153,14 @@ textarea:focus {
     }
 }
 
-/* ---------- LABELS ---------- */
+/* ---------- FORM CONTROLS ---------- */
 
-label {
-    font-size: 1.1rem;
-    font-weight: 600;
+.formControl-edit {
+    justify-self: end;
+}
+
+.formControl-btn {
+    display: flex;
+    justify-content: center;
+    gap: var(--gap);
 }

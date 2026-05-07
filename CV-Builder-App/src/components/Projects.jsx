@@ -1,7 +1,9 @@
 //projectTitle,domain,startDate,endDate,projectDesc,projectLinks
 import '../styles/Projects.css';
+import FormControl from './FormControl';
+import Input from './Input';
 import { useState } from 'react';
-export default function Project({ data, onSave }) {
+export default function Project({ data, onSave, printMode }) {
     const [viewMode, setViewMode] = useState('preview');
 
     function updateView() {
@@ -9,7 +11,7 @@ export default function Project({ data, onSave }) {
     }
     const componentUI =
         viewMode === 'preview' ? (
-            <Preview data={data} onClick={updateView} />
+            <Preview data={data} onClick={updateView} printMode={printMode} />
         ) : (
             <Edit data={data} onSubmit={updateView} onSave={onSave} />
         );
@@ -20,19 +22,25 @@ export default function Project({ data, onSave }) {
         </div>
     );
 }
-function Preview({ data, onClick }) {
-    return (
-        <div className="ProjectInfo">
-            {data.map((project) => (
-                <ProjectInfo data={project} key={`project-${project.id}`}></ProjectInfo>
-            ))}
-            <div className="formControl">
-                <button type="button" className="btn" onClick={onClick}>
-                    Edit
-                </button>
+function Preview({ data, onClick, printMode }) {
+    if (printMode) {
+        return (
+            <div className="ProjectInfo">
+                {data.map((project) => (
+                    <ProjectInfo data={project} key={`project-${project.id}`}></ProjectInfo>
+                ))}
             </div>
-        </div>
-    );
+        );
+    } else {
+        return (
+            <div className="ProjectInfo">
+                {data.map((project) => (
+                    <ProjectInfo data={project} key={`project-${project.id}`}></ProjectInfo>
+                ))}
+                <FormControl onClick={onClick} />
+            </div>
+        );
+    }
 }
 function ProjectInfo({ data }) {
     return (
@@ -214,23 +222,5 @@ function ProjectInfoEdit({ data, onChange, onRemove }) {
                 Delete
             </button>
         </div>
-    );
-}
-function Input({ id, type, value, onChange, label, pattern, title, autoComplete, name }) {
-    return (
-        <>
-            <label htmlFor={id}>{label} :</label>
-            <input
-                name={name}
-                type={type}
-                value={value}
-                onChange={onChange}
-                id={id}
-                pattern={pattern}
-                title={title}
-                autoComplete={autoComplete}
-                required
-            />
-        </>
     );
 }

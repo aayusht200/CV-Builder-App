@@ -1,7 +1,7 @@
 export default function FormControl({ onClick }) {
     return (
         <>
-            <div className="formControl">
+            <div className="formControl-edit">
                 <button type="button" className="btn" onClick={onClick}>
                     Edit
                 </button>

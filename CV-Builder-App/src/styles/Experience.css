@@ -23,8 +23,7 @@
     grid-template-columns: 2fr 1fr;
 }
 
-.ExperienceInfo.preview .experienceDate,
-.ExperienceInfo.preview .formControl {
+.ExperienceInfo.preview .experienceDate {
     justify-self: end;
 }
 
@@ -63,14 +62,5 @@
     margin-right: 0.5rem;
 }
 
-/* ---------- CONTROLS ---------- */
 
-.ExperienceInfo .formControl {
-    display: grid;
-}
 
-.ExperienceInfo .formControl-btn {
-    display: flex;
-    justify-content: center;
-    gap: var(--gap-div);
-}

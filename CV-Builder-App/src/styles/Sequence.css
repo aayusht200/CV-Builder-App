@@ -1,0 +1,20 @@
+:root {
+    --gap-div: 0.4rem;
+    --gap-inner: 0.4rem;
+}
+/* ---------- PREVIEW ---------- */
+.SequenceInfo.preview .currentSequence {
+    display: grid;
+    gap: var(--gap-div);
+    padding-left: var(--gap-inner);
+}
+/* ---------- EDIT ---------- */
+
+.SequenceInfo.edit .SequenceInfo {
+    display: grid;
+    gap: var(--gap-div);
+}
+.SequenceInfo.edit .currentSequence {
+    display: grid;
+    gap: var(--gap-inner);
+}

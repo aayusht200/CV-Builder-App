@@ -3,60 +3,50 @@
     --gap-inner: 0.4rem;
 }
 
-/* ---------- BASE (shared) ---------- */
+/* ---------- BASE ---------- */
 
 .GeneralInfo {
     display: grid;
     gap: var(--gap-div);
 }
 
-.userName {
-    grid-area: userName;
-}
-.ContactDetails {
-    grid-area: ContactDetails;
-}
-.ContactLinks {
-    grid-area: ContactLinks;
-}
-.SummarySection {
-    grid-area: SummarySection;
-}
-
-.GeneralInfo .formControl {
-    grid-area: formControl;
-    justify-self: end;
-}
-
 /* ---------- PREVIEW ---------- */
-.userName h1 {
-    line-height: 1.5;
-    padding: 0;
-    margin-bottom: -10px;
+
+.GeneralInfo.preview .GeneralInfo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--gap-div);
+    text-align: justify;
 }
-.GeneralInfo.preview {
-    grid-template-columns: auto auto;
-    grid-template-areas:
-        'userName userName'
-        'ContactDetails ContactLinks'
-        'SummarySection SummarySection'
-        'formControl formControl';
+
+.GeneralInfo.preview .userName,
+.GeneralInfo.preview .SummarySection {
+    grid-column: 1 / 3;
 }
 
 .GeneralInfo.preview .userName {
     justify-self: center;
 }
 
+.GeneralInfo.preview .ContactDetails,
+.GeneralInfo.preview .ContactLinks {
+    display: flex;
+    gap: var(--gap-div);
+}
+
 .GeneralInfo.preview .ContactDetails {
     justify-self: end;
-    display: flex;
-    gap: var(--gap-inner);
 }
 
 .GeneralInfo.preview .ContactLinks {
-    justify-self: start;
-    display: flex;
-    gap: var(--gap-inner);
+    padding-left: 4rem;
+}
+
+/* ---------- TYPOGRAPHY ---------- */
+
+.userName h1 {
+    line-height: 1.5;
+    margin-bottom: -10px;
 }
 
 /* ---------- EDIT ---------- */
@@ -64,33 +54,4 @@
 .GeneralInfo.edit form {
     display: grid;
     gap: var(--gap-div);
-    grid-template-columns: 1fr 1fr;
-
-    grid-template-areas:
-        'userName userName'
-        'ContactDetails ContactDetails'
-        'ContactLinks ContactLinks'
-        'SummarySection SummarySection'
-        'formControl formControl';
-}
-
-.GeneralInfo.edit .userName {
-    display: grid;
-    gap: var(--gap-inner);
-}
-
-.GeneralInfo.edit .ContactDetails,
-.GeneralInfo.edit .ContactLinks {
-    display: grid;
-    gap: var(--gap-inner);
-}
-
-.GeneralInfo.edit .SummarySection {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-inner);
-}
-
-.GeneralInfo.edit textarea {
-    width: 100%;
 }

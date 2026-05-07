@@ -1,22 +1,27 @@
 import '../styles/Sequence.css';
+import FormControl from './FormControl';
+import Input from './Input';
 import { useState } from 'react';
-export default function Sequence({ data, onSave }) {
+export default function Sequence({ data, onSave, printMode }) {
     const [viewMode, setViewMode] = useState('preview');
     function updateView() {
         setViewMode((prev) => (prev === 'preview' ? 'edit' : 'preview'));
     }
     const componentUI =
         viewMode === 'preview' ? (
-            <Preview data={data} onClick={updateView} />
+            <Preview data={data} onClick={updateView} printMode={printMode} />
         ) : (
             <Edit data={data} onSubmit={updateView} onSave={onSave} />
         );
-    return (
-        <div className={`SequenceInfo ${viewMode}`}>
-            <h1 className="sectionHeader">Sequence</h1>
-            {componentUI}
-        </div>
-    );
+    if (printMode) return;
+    else {
+        return (
+            <div className={`SequenceInfo ${viewMode}`}>
+                <h1 className="sectionHeader">Sequence</h1>
+                {componentUI}
+            </div>
+        );
+    }
 }
 function Preview({ data, onClick }) {
     return (
@@ -28,11 +33,7 @@ function Preview({ data, onClick }) {
                     </p>
                 ))}
             </div>
-            <div className="formControl">
-                <button type="button" className="btn" onClick={onClick}>
-                    Edit
-                </button>
-            </div>
+            <FormControl onClick={onClick} />
         </div>
     );
 }
@@ -54,7 +55,7 @@ function Edit({ data, onSubmit, onSave }) {
     return (
         <form onSubmit={handleSubmit}>
             <div className="SequenceInfo">
-                <ol className="currentSequence">
+                <div className="currentSequence">
                     {Object.entries(newData).map(([key, value]) => (
                         <Input
                             key={`currentSequence-${key}`}
@@ -71,7 +72,7 @@ function Edit({ data, onSubmit, onSave }) {
                             name={key}
                         ></Input>
                     ))}
-                </ol>
+                </div>
                 <div className="formControl-btn">
                     <button type="submit" className="btn">
                         Submit
@@ -79,23 +80,5 @@ function Edit({ data, onSubmit, onSave }) {
                 </div>
             </div>
         </form>
-    );
-}
-function Input({ id, type, value, onChange, label, pattern, title, autoComplete, name }) {
-    return (
-        <>
-            <label htmlFor={id}>{label} :</label>
-            <input
-                name={name}
-                type={type}
-                value={value}
-                onChange={onChange}
-                id={id}
-                pattern={pattern}
-                title={title}
-                autoComplete={autoComplete}
-                required
-            />
-        </>
     );
 }

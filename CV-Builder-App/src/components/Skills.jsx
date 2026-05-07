@@ -1,14 +1,16 @@
 //domain,skills
 import '../styles/Skills.css';
+import FormControl from './FormControl';
+import Input from './Input';
 import { useState } from 'react';
-export default function Skills({ data, onSave }) {
+export default function Skills({ data, onSave, printMode }) {
     const [viewMode, setViewMode] = useState('preview');
     function updateView() {
         setViewMode((prev) => (prev === 'preview' ? 'edit' : 'preview'));
     }
     const componentUI =
         viewMode === 'preview' ? (
-            <Preview data={data} onClick={updateView} />
+            <Preview data={data} onClick={updateView} printMode={printMode} />
         ) : (
             <Edit data={data} onSubmit={updateView} onSave={onSave} />
         );
@@ -19,19 +21,25 @@ export default function Skills({ data, onSave }) {
         </div>
     );
 }
-function Preview({ data, onClick }) {
-    return (
-        <div className="SkillsInfo">
-            {data.map((skills) => (
-                <SkillsInfo data={skills} key={`skills-${skills.id}`}></SkillsInfo>
-            ))}
-            <div className="skillsControl">
-                <button type="button" className="btn" onClick={onClick}>
-                    Edit
-                </button>
-            </div>
-        </div>
-    );
+function Preview({ data, onClick, printMode }) {
+    if (printMode) {
+        return (
+            <>
+                {data.map((skills) => (
+                    <SkillsInfo data={skills} key={`skills-${skills.id}`}></SkillsInfo>
+                ))}
+            </>
+        );
+    } else {
+        return (
+            <>
+                {data.map((skills) => (
+                    <SkillsInfo data={skills} key={`skills-${skills.id}`}></SkillsInfo>
+                ))}
+                <FormControl onClick={onClick} />
+            </>
+        );
+    }
 }
 
 function SkillsInfo({ data }) {
@@ -120,23 +128,5 @@ function SkillsInfoEdit({ data, onChange, onRemove }) {
                 Delete
             </button>
         </div>
-    );
-}
-function Input({ id, type, value, onChange, label, pattern, title, autoComplete, name }) {
-    return (
-        <>
-            <label htmlFor={id}>{label} :</label>
-            <input
-                name={name}
-                type={type}
-                value={value}
-                onChange={onChange}
-                id={id}
-                pattern={pattern}
-                title={title}
-                autoComplete={autoComplete}
-                required
-            />
-        </>
     );
 }

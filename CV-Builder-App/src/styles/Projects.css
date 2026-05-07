@@ -24,8 +24,7 @@
     grid-template-columns: 1fr auto;
 }
 
-.ProjectInfoContainer.preview .projectDate,
-.ProjectInfoContainer.preview .formControl {
+.ProjectInfoContainer.preview .projectDate {
     justify-self: end;
 }
 
@@ -43,16 +42,4 @@
 
 .ProjectInfoContainer.edit .btn {
     justify-self: end;
-}
-
-/* ---------- CONTROLS ---------- */
-
-.ProjectInfoContainer .formControl {
-    display: grid;
-}
-
-.ProjectInfoContainer .formControl-btn {
-    display: flex;
-    justify-content: center;
-    gap: var(--gap-div);
 }

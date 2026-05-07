@@ -30,7 +30,7 @@ function Preview({ data, onClick, printMode }) {
 }
 function PreviewMode({ data }) {
     return (
-        <>
+        <div className="GeneralInfo">
             <div className="userName">
                 <h1>
                     {data.firstName} {data.lastName}
@@ -49,7 +49,7 @@ function PreviewMode({ data }) {
                 </a>
             </div>
             <div className="SummarySection">{data.summary}</div>
-        </>
+        </div>
     );
 }
 
@@ -115,7 +115,7 @@ function Edit({ data, onSubmit, onSave }) {
                 <textarea id="summary" value={newData.summary} cols={50} rows={10} onChange={handleEdit} />
             </div>
 
-            <div className="formControl">
+            <div className="formControl-btn">
                 <button type="submit" className="btn">
                     Submit
                 </button>
