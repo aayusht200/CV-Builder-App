@@ -1,13 +1,15 @@
 import { useState } from 'react';
+import FormControl from './FormControl';
+import Input from './Input';
 import '../styles/Education.css';
-export default function Education({ data, onSave }) {
+export default function Education({ data, onSave, printMode }) {
     const [viewMode, setViewMode] = useState('preview');
     function updateView() {
         setViewMode((prev) => (prev === 'preview' ? 'edit' : 'preview'));
     }
     const componentUI =
         viewMode === 'preview' ? (
-            <Preview data={data} onClick={updateView} />
+            <Preview data={data} onClick={updateView} printMode={printMode} />
         ) : (
             <Edit data={data} onSubmit={updateView} onSave={onSave} />
         );
@@ -19,20 +21,25 @@ export default function Education({ data, onSave }) {
     );
 }
 
-function Preview({ data, onClick }) {
-    return (
+function Preview({ data, onClick, printMode }) {
+    if (printMode) {
+        return (
+            <>
+                {data.map((university) => (
+                    <UniversityInfo data={university} key={university.id}></UniversityInfo>
+                ))}
+            </>
+        );
+    } else {
         <>
             {data.map((university) => (
                 <UniversityInfo data={university} key={university.id}></UniversityInfo>
             ))}
-            <div className="formControl">
-                <button type="button" className="btn" onClick={onClick}>
-                    Edit
-                </button>
-            </div>
-        </>
-    );
+            <FormControl onClick={onClick} />
+        </>;
+    }
 }
+
 function UniversityInfo({ data }) {
     return (
         <div className="UniversityInfo">
@@ -154,23 +161,5 @@ function UniversityInfoEdit({ data, onChange, onRemove }) {
                 Delete
             </button>
         </div>
-    );
-}
-
-function Input({ id, type, value, onChange, label, pattern, title }) {
-    return (
-        <>
-            <label htmlFor={id}>{label} :</label>
-            <input
-                type={type}
-                value={value}
-                onChange={onChange}
-                id={id}
-                name={id}
-                pattern={pattern}
-                title={title}
-                required
-            />
-        </>
     );
 }

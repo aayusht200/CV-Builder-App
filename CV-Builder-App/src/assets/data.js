@@ -105,7 +105,7 @@ export const data = {
             ],
         },
     ],
-    Project: [
+    Projects: [
         {
             id: 1,
             projectTitle: 'Battleship Game',

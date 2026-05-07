@@ -1,8 +1,9 @@
 //projectTitle,domain,startDate,endDate,projectDesc,projectLinks
 import '../styles/Projects.css';
 import { useState } from 'react';
-export default function Projects({ data, onSave }) {
+export default function Project({ data, onSave }) {
     const [viewMode, setViewMode] = useState('preview');
+
     function updateView() {
         setViewMode((prev) => (prev === 'preview' ? 'edit' : 'preview'));
     }

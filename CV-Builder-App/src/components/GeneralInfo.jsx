@@ -1,20 +1,34 @@
 import { useState } from 'react';
+import FormControl from './FormControl';
+import Input from './Input';
 import '../styles/GeneralInfo.css';
-export default function GeneralInfo({ data, onSave }) {
+export default function GeneralInfo({ data, onSave, printMode }) {
     const [viewMode, setViewMode] = useState('preview');
     function updateView() {
         setViewMode((prev) => (prev === 'preview' ? 'edit' : 'preview'));
     }
     const componentUI =
         viewMode === 'preview' ? (
-            <Preview data={data} onClick={updateView} />
+            <Preview data={data} onClick={updateView} printMode={printMode} />
         ) : (
             <Edit data={data} onSubmit={updateView} onSave={onSave} />
         );
     return <div className={`GeneralInfo ${viewMode}`}>{componentUI}</div>;
 }
 
-function Preview({ data, onClick }) {
+function Preview({ data, onClick, printMode }) {
+    if (printMode) {
+        return <PreviewMode data={data} />;
+    } else {
+        return (
+            <>
+                <PreviewMode data={data} />
+                <FormControl onClick={onClick} />
+            </>
+        );
+    }
+}
+function PreviewMode({ data }) {
     return (
         <>
             <div className="userName">
@@ -35,14 +49,10 @@ function Preview({ data, onClick }) {
                 </a>
             </div>
             <div className="SummarySection">{data.summary}</div>
-            <div className="formControl">
-                <button type="button" className="btn" onClick={onClick}>
-                    Edit
-                </button>
-            </div>
         </>
     );
 }
+
 function Edit({ data, onSubmit, onSave }) {
     const [newData, setNewData] = useState(data);
 
@@ -111,13 +121,5 @@ function Edit({ data, onSubmit, onSave }) {
                 </button>
             </div>
         </form>
-    );
-}
-function Input({ id, type, value, onChange, label, pattern, title }) {
-    return (
-        <>
-            <label htmlFor={id}>{label} :</label>
-            <input type={type} value={value} onChange={onChange} id={id} name={id} pattern={pattern} title={title} />
-        </>
     );
 }
