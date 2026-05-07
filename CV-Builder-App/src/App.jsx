@@ -4,7 +4,7 @@ import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
 import { data } from './assets/data';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import Sequence from './components/Sequence';
 export default function App() {
@@ -19,13 +19,25 @@ export default function App() {
         }));
     }
     function updatePrintState() {
-        console.log(isPrintMode);
         setPrintMode(true);
-        console.log(isPrintMode);
     }
+    useEffect(() => {
+        if (isPrintMode) {
+            window.print();
+        }
+    }, [isPrintMode]);
+    useEffect(() => {
+        window.onafterprint = () => {
+            setPrintMode(false);
+        };
+
+        return () => {
+            window.onafterprint = null;
+        };
+    }, []);
     return (
-        <div className="app">
-            <button type="button" className="btn" onClick={updatePrintState}>
+        <div className="app" id="app">
+            <button type="button" className="btn" id="printButton" onClick={updatePrintState}>
                 Print Resume
             </button>
             <div className="container">

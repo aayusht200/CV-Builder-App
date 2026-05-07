@@ -1,9 +1,8 @@
 :root {
     /* ---------- SPACING ---------- */
 
-    --gap: 1rem;
-    --padding-y: 2rem;
-
+    --gap: 0.2rem;
+    --padding-y: 0.2rem;
     /* ---------- LAYOUT ---------- */
 
     --app-width: 90%;
@@ -46,6 +45,29 @@
 }
 
 /* ---------- BASE ---------- */
+@media print {
+    @page {
+        size: A4;
+        margin: 2mm;
+    }
+
+    body {
+        background: white;
+    }
+
+    .app {
+        width: 100%;
+        padding: 0;
+    }
+
+    .container {
+        gap: 0;
+    }
+
+    .btn {
+        display: none;
+    }
+}
 
 body {
     font-family: var(--font-base);
