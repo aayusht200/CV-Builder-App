@@ -55,7 +55,7 @@ function Edit({ data, onSubmit, onSave }) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        onSave('GeneralInfoData', newData);
+        onSave('GeneralInfo', newData);
         onSubmit();
     }
 

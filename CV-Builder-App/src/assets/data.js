@@ -1,5 +1,5 @@
 export const data = {
-    GeneralInfoData: {
+    GeneralInfo: {
         firstName: 'Aayush',
         lastName: 'Trivedi',
         email: 'aayush.t200@gmail.com',
@@ -9,7 +9,7 @@ export const data = {
         summary:
             'Front-End Developer skilled in building responsive, scalable web applications using HTML5, CSS3, and JavaScript (ES6+). Strong experience in modular architecture, state-driven UI rendering, API integration, and test-driven development with Jest, with a focus on building maintainable and user-focused applications. Proven ability to solve complex technical problems and deliver measurable business impact through both software engineering and operational leadership experience.',
     },
-    EducationData: [
+    Education: [
         {
             id: 1,
             universityName: 'Pace University',
@@ -32,7 +32,7 @@ export const data = {
             notableCourses: 'Data Structures & Algorithm with Java, RDBMS, HTML programing',
         },
     ],
-    ExperienceData: [
+    Experience: [
         {
             id: 1,
             company: 'Elite Jewelry House / Frostrox LLC',
@@ -105,7 +105,7 @@ export const data = {
             ],
         },
     ],
-    ProjectData: [
+    Project: [
         {
             id: 1,
             projectTitle: 'Battleship Game',
@@ -154,7 +154,7 @@ caching, manual and auto refresh logic, and dynamic UI updates with responsive G
             },
         },
     ],
-    SkillsData: [
+    Skills: [
         {
             id: 1,
             domain: 'Web Development & UI',
@@ -178,5 +178,5 @@ DOM rendering patterns, async/await, Promises, localStorage`,
             skills: `Analytical problem-solving, adaptability, attention to detail, continuous self-learning`,
         },
     ],
-    sequence: ['GeneralInfo', 'Education', 'Experience', 'Projects', 'Skills'],
+    Sequence: { GeneralInfo: 1, Education: 2, Experience: 3, Projects: 4, Skills: 5 },
 };

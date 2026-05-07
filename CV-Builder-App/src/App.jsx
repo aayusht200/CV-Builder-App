@@ -15,16 +15,15 @@ export default function App() {
             [section]: newData,
         }));
     }
-
     return (
         <div className="app">
             <div className="container">
-                {/* <GeneralInfo data={currentData.GeneralInfoData} onSave={updateCurrentData} />
-                <Education data={currentData.EducationData} onSave={updateCurrentData} />
-                <Experience data={currentData.ExperienceData} onSave={updateCurrentData} />
-                <Projects data={currentData.ProjectData} onSave={updateCurrentData} /> */}
-                <Skills data={currentData.SkillsData} onSave={updateCurrentData} />
-                <Sequence data={currentData.sequence} onSave={updateCurrentData} />
+                <GeneralInfo data={currentData.GeneralInfo} onSave={updateCurrentData} />
+                <Education data={currentData.Education} onSave={updateCurrentData} />
+                <Experience data={currentData.Experience} onSave={updateCurrentData} />
+                <Projects data={currentData.Project} onSave={updateCurrentData} />
+                <Skills data={currentData.Skills} onSave={updateCurrentData} />
+                <Sequence data={currentData.Sequence} onSave={updateCurrentData} />
             </div>
         </div>
     );

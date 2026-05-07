@@ -83,7 +83,7 @@ function Edit({ data, onSubmit, onSave }) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        onSave('ExperienceData', newData);
+        onSave('Experience', newData);
         onSubmit();
     }
 

@@ -70,7 +70,7 @@ function Edit({ data, onSubmit, onSave }) {
     }
     function handleSubmit(e) {
         e.preventDefault();
-        onSave('EducationData', newData);
+        onSave('Education', newData);
         onSubmit();
     }
 

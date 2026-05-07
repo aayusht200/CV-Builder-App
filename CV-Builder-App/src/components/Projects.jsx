@@ -86,7 +86,7 @@ function Edit({ data, onSubmit, onSave }) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        onSave('ProjectData', newData);
+        onSave('Project', newData);
         onSubmit();
     }
     return (
