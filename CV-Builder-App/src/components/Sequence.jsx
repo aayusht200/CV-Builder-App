@@ -40,6 +40,7 @@ function Preview({ data, onClick }) {
 
 function Edit({ data, onSubmit, onSave }) {
     const [newData, updateData] = useState(data);
+    const [error, setError] = useState('');
     function handleEdit(e) {
         const { name, value } = e.target;
         updateData((prev) => ({
@@ -49,6 +50,13 @@ function Edit({ data, onSubmit, onSave }) {
     }
     function handleSubmit(e) {
         e.preventDefault();
+        const values = Object.values(newData);
+        const uniqueValues = new Set(values);
+        if (values.length !== uniqueValues.size) {
+            setError('Section Overlap, enter unique positions');
+            return;
+        }
+        setError('');
         onSave('Sequence', newData);
         onSubmit();
     }
@@ -59,7 +67,7 @@ function Edit({ data, onSubmit, onSave }) {
                     {Object.entries(newData).map(([key, value]) => (
                         <Input
                             key={`currentSequence-${key}`}
-                            id={`currentSequence-${key}`}
+                            id={key}
                             className="SequenceListItem"
                             type="number"
                             value={value}
@@ -67,12 +75,12 @@ function Edit({ data, onSubmit, onSave }) {
                             label={key}
                             min="1"
                             max="5"
-                            pattern="^[1-5]$"
                             title="Enter a number between 1-5"
                             name={key}
                         ></Input>
                     ))}
                 </div>
+                {error && <p>{error}</p>}
                 <div className="formControl-btn">
                     <button type="submit" className="btn">
                         Submit

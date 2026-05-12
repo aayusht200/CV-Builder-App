@@ -14,14 +14,14 @@
 
 .GeneralInfo.preview .GeneralInfo {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(5, 1fr);
     gap: var(--gap-div);
     text-align: justify;
 }
 
 .GeneralInfo.preview .userName,
 .GeneralInfo.preview .SummarySection {
-    grid-column: 1 / 3;
+    grid-column: 1 / 6;
 }
 
 .GeneralInfo.preview .userName {
@@ -35,11 +35,8 @@
 }
 
 .GeneralInfo.preview .ContactDetails {
-    justify-self: end;
-}
-
-.GeneralInfo.preview .ContactLinks {
-    padding-left: 4rem;
+    justify-content: end;
+    grid-column: 1/4;
 }
 
 /* ---------- TYPOGRAPHY ---------- */

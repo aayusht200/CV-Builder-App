@@ -45,29 +45,6 @@
 }
 
 /* ---------- BASE ---------- */
-@media print {
-    @page {
-        size: A4;
-        margin: 2mm;
-    }
-
-    body {
-        background: white;
-    }
-
-    .app {
-        width: 100%;
-        padding: 0;
-    }
-
-    .container {
-        gap: 0;
-    }
-
-    .btn {
-        display: none;
-    }
-}
 
 body {
     font-family: var(--font-base);
@@ -185,4 +162,35 @@ textarea:focus {
     display: flex;
     justify-content: center;
     gap: var(--gap);
+}
+/* ---------- Print ---------- */
+@media print {
+    @page {
+        margin: 1mm;
+    }
+
+    body {
+        background: white;
+    }
+
+    .app {
+        width: 100%;
+        font-size: 0.7rem;
+        line-height: 1.2;
+        padding: 1rem;
+    }
+    h1,
+    h2,
+    h3 {
+        font-size: 0.7rem;
+    }
+    .container {
+        gap: 0.5rem;
+    }
+    .container > * {
+        gap: 0.5rem;
+    }
+    .app .btn {
+        display: none;
+    }
 }
